@@ -1,0 +1,203 @@
+[00:00:01.012] Server  LOG     ✓ Ready in 763ms
+[00:00:05.173] Server  ERROR   ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/BusyChart'
+  3 | import { signIn, signOut, useSession } from "next-auth/react";
+  4 | import { useEffect, useState } from "react";
+> 5 | import BusyChart from "@/components/BusyChart";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import BusyTable from "@/components/BusyTable";
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/page.tsx:6:1
+Module not found: Can't resolve '@/components/BusyTable'
+  4 | import { useEffect, useState } from "react";
+  5 | import BusyChart from "@/components/BusyChart";
+> 6 | import BusyTable from "@/components/BusyTable";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+  9 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:05.707] Server  ERROR   ⨯ ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/BusyChart'
+  3 | import { signIn, signOut, useSession } from "next-auth/react";
+  4 | import { useEffect, useState } from "react";
+> 5 | import BusyChart from "@/components/BusyChart";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import BusyTable from "@/components/BusyTable";
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/page.tsx:6:1
+Module not found: Can't resolve '@/components/BusyTable'
+  4 | import { useEffect, useState } from "react";
+  5 | import BusyChart from "@/components/BusyChart";
+> 6 | import BusyTable from "@/components/BusyTable";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+  9 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:08.107] Browser ERROR   uncaughtError: Error: ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/BusyChart'
+  3 | import { signIn, signOut, useSession } from "next-auth/react";
+  4 | import { useEffect, useState } from "react";
+> 5 | import BusyChart from "@/components/BusyChart";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import BusyTable from "@/components/BusyTable";
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:09.117] Browser ERROR   ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/BusyChart'
+  3 | import { signIn, signOut, useSession } from "next-auth/react";
+  4 | import { useEffect, useState } from "react";
+> 5 | import BusyChart from "@/components/BusyChart";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import BusyTable from "@/components/BusyTable";
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:09.117] Browser ERROR   ./app/page.tsx:6:1
+Module not found: Can't resolve '@/components/BusyTable'
+  4 | import { useEffect, useState } from "react";
+  5 | import BusyChart from "@/components/BusyChart";
+> 6 | import BusyTable from "@/components/BusyTable";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+  9 |
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:09.220] Browser ERROR   ./app/page.tsx:5:1
+Module not found: Can't resolve '@/components/BusyChart'
+  3 | import { signIn, signOut, useSession } from "next-auth/react";
+  4 | import { useEffect, useState } from "react";
+> 5 | import BusyChart from "@/components/BusyChart";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import BusyTable from "@/components/BusyTable";
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:09.220] Browser ERROR   ./app/page.tsx:6:1
+Module not found: Can't resolve '@/components/BusyTable'
+  4 | import { useEffect, useState } from "react";
+  5 | import BusyChart from "@/components/BusyChart";
+> 6 | import BusyTable from "@/components/BusyTable";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 |
+  8 | type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
+  9 |
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
