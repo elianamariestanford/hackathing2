@@ -2,8 +2,8 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import BusyChart from "@/components/BusyChart";
-import BusyTable from "@/components/BusyTable";
+import BusyChart from "../components/busychart";
+import BusyTable from "../components/busytable";
 
 type Weekly = { weekStartISO: string; Academic: number; Social: number; Other: number };
 
