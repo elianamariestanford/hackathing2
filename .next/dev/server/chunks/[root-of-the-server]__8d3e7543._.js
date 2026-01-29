@@ -108,20 +108,21 @@ __turbopack_context__.s([
     "GET",
     ()=>handler,
     "POST",
-    ()=>handler
+    ()=>handler,
+    "authOptions",
+    ()=>authOptions
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-auth/index.js [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$providers$2f$google$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-auth/providers/google.js [app-route] (ecmascript)");
 ;
 ;
-const handler = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])({
+const authOptions = {
     providers: [
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$providers$2f$google$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             authorization: {
                 params: {
-                    // IMPORTANT: calendar readonly scope
                     scope: "openid email profile https://www.googleapis.com/auth/calendar.readonly",
                     access_type: "offline",
                     prompt: "consent"
@@ -131,18 +132,16 @@ const handler = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules
     ],
     callbacks: {
         async jwt ({ token, account }) {
-            // Persist the Google access_token to the token right after sign in
             if (account?.access_token) token.accessToken = account.access_token;
             return token;
         },
         async session ({ session, token }) {
-            // Make it available to server routes via session
-            // @ts-ignore
             session.accessToken = token.accessToken;
             return session;
         }
     }
-});
+};
+const handler = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])(authOptions);
 ;
 }),
 ];

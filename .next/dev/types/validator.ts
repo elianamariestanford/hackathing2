@@ -56,19 +56,19 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
-// Validate ../../../app/api/Events/route.ts
+// Validate ../../../app/api/auth/[...nextauth]/route.ts
 {
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/Events">> = Specific
-  const handler = {} as typeof import("../../../app/api/Events/route.js")
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auth/[...nextauth]">> = Specific
+  const handler = {} as typeof import("../../../app/api/auth/[...nextauth]/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
 }
 
-// Validate ../../../app/api/auth/[...nextauth]/route.ts
+// Validate ../../../app/api/events/route.ts
 {
-  type __IsExpected<Specific extends RouteHandlerConfig<"/api/auth/[...nextauth]">> = Specific
-  const handler = {} as typeof import("../../../app/api/auth/[...nextauth]/route.js")
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/events">> = Specific
+  const handler = {} as typeof import("../../../app/api/events/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
