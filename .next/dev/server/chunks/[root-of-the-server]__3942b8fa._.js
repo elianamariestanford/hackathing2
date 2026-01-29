@@ -323,11 +323,71 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$aggregate$2e$ts__$5b$
 ;
 ;
 const runtime = "nodejs";
+function parseEventDate(e, key) {
+    const raw = e[key]?.dateTime ?? e[key]?.date; // all-day uses date
+    if (!raw) return null;
+    const d = new Date(raw);
+    return Number.isNaN(d.getTime()) ? null : d;
+}
+function durationHours(start, end) {
+    return Math.max(0, (end.getTime() - start.getTime()) / 36e5);
+}
+/**
+ * IMPORTANT:
+ * Ideally match aggregateWeekly's categorization logic.
+ */ function categorize(title) {
+    const t = (title || "").toLowerCase();
+    const academic = [
+        "class",
+        "lecture",
+        "lab",
+        "office hour",
+        "study",
+        "review",
+        "exam",
+        "quiz",
+        "hw",
+        "homework",
+        "research",
+        "meeting"
+    ];
+    const social = [
+        "dinner",
+        "lunch",
+        "brunch",
+        "party",
+        "hang",
+        "date",
+        "coffee",
+        "drinks",
+        "birthday",
+        "social"
+    ];
+    if (academic.some((k)=>t.includes(k))) return "Academic";
+    if (social.some((k)=>t.includes(k))) return "Social";
+    return "Other";
+}
+/**
+ * Assign an event to the closest weekly bucket returned by aggregateWeekly.
+ * This guarantees keys match the client’s w.weekStartISO exactly.
+ */ function findWeekBucket(startISO, weekly) {
+    if (!weekly.length) return null;
+    const t = new Date(startISO).getTime();
+    let best = weekly[0].weekStartISO;
+    let bestDist = Infinity;
+    for (const w of weekly){
+        const dist = Math.abs(new Date(w.weekStartISO).getTime() - t);
+        if (dist < bestDist) {
+            bestDist = dist;
+            best = w.weekStartISO;
+        }
+    }
+    return best;
+}
 async function GET() {
     const session = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getServerSession"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$api$2f$auth$2f5b2e2e2e$nextauth$5d2f$route$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["authOptions"]);
     const accessToken = session?.accessToken;
     if (!accessToken) {
-        // helpful debug
         console.error("No accessToken on session:", session);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Not authenticated"
@@ -355,12 +415,40 @@ async function GET() {
             maxResults: 2500
         });
         const items = resp.data.items ?? [];
+        // ✅ totals (source of truth for weekStartISO buckets)
         const { weekly } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$aggregate$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["aggregateWeekly"])(items);
+        // ✅ Initialize weeklyDetails using the exact same keys as `weekly`
+        const weeklyDetails = {};
+        for (const w of weekly){
+            weeklyDetails[w.weekStartISO] = {
+                Academic: [],
+                Social: [],
+                Other: []
+            };
+        }
+        // ✅ Populate details into those buckets
+        for (const e of items){
+            const start = parseEventDate(e, "start");
+            const end = parseEventDate(e, "end");
+            if (!start || !end) continue;
+            const hours = durationHours(start, end);
+            if (hours <= 0) continue;
+            const category = categorize(e.summary ?? "");
+            const bucket = findWeekBucket(start.toISOString(), weekly);
+            if (!bucket) continue;
+            weeklyDetails[bucket][category].push({
+                id: e.id ?? `${bucket}-${e.summary ?? "event"}`,
+                title: e.summary ?? "(No title)",
+                startISO: start.toISOString(),
+                hours,
+                category
+            });
+        }
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            weekly
+            weekly,
+            weeklyDetails
         });
     } catch (err) {
-        // This will usually contain the real Google error (401/403 + message)
         console.error("Google Calendar API error:", err?.response?.data || err);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Google Calendar fetch failed",

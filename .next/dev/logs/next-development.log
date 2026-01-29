@@ -1,6 +1,6 @@
-[00:00:00.933] Server  LOG     ✓ Ready in 692ms
-[00:00:11.159] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:11.357] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:00.943] Server  LOG     ✓ Ready in 707ms
+[00:00:11.738] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:11.738] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -25,17 +25,18 @@ It can also happen if the client has a browser extension installed which messes 
                   <__next_root_layout_boundary__>
                     <SegmentViewNode type="layout" pagePath="layout.tsx">
                       <SegmentTrieNode>
+                      <link>
                       <script>
                       <script>
                       <RootLayout>
                         <html lang="en">
                           <body
+                            className="poppins_31482ba6-module__wLGJTG__className"
+                            style={{background:"#fafafa"}}
 -                           data-new-gr-c-s-check-loaded="14.1270.0"
 -                           data-gr-ext-installed=""
                           >
                   ...
 
-[00:00:29.723] Server  LOG     ✓ Compiled in 114ms
-[00:01:24.895] Server  LOG     ✓ Compiled in 0ms
-[00:01:25.269] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:53.169] Server  LOG     ✓ Compiled in 67ms
+[00:03:40.636] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:19.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
