@@ -1,6 +1,15 @@
 "use client";
 
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+} from "recharts";
+import { format } from "date-fns";
 
 export default function BusyChart({
   weekly,
@@ -10,14 +19,24 @@ export default function BusyChart({
   return (
     <div style={{ width: "100%", height: 320 }}>
       <ResponsiveContainer>
-        <BarChart data={weekly}>
-          <XAxis dataKey="weekStartISO" />
+        <BarChart
+          data={weekly}
+          barGap={6}
+          barCategoryGap="20%"
+        >
+          <XAxis
+            dataKey="weekStartISO"
+            tickFormatter={(iso) => format(new Date(iso), "MMM d")}
+          />
           <YAxis />
-          <Tooltip />
+          <Tooltip
+            labelFormatter={(iso) => format(new Date(iso), "MMM d")}
+          />
           <Legend />
-          <Bar dataKey="Academic" />
-          <Bar dataKey="Social" />
-          <Bar dataKey="Other" />
+
+          <Bar dataKey="Academic" fill="#4f46e5" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="Social" fill="#22c55e" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="Other" fill="#f97316" radius={[6, 6, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
