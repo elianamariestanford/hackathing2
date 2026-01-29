@@ -1,42 +1,20 @@
-[00:00:00.943] Server  LOG     ✓ Ready in 707ms
-[00:00:11.738] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:11.738] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="poppins_31482ba6-module__wLGJTG__className"
-                            style={{background:"#fafafa"}}
--                           data-new-gr-c-s-check-loaded="14.1270.0"
--                           data-gr-ext-installed=""
-                          >
-                  ...
-
-[00:03:40.636] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:19.390] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.068] Server  LOG     ✓ Ready in 745ms
+[00:00:02.600] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.254] Server  ERROR   Google Calendar API error: {}
+[00:00:55.389] Server  LOG     ✓ Compiled in 406ms
+[00:00:57.052] Server  LOG     ✓ Compiled in 27ms
+[00:01:02.485] Server  LOG     ✓ Compiled in 33ms
+[00:01:08.868] Server  LOG     ✓ Compiled in 85ms
+[00:01:13.353] Server  LOG     ✓ Compiled in 12ms
+[00:01:15.293] Server  LOG     ✓ Compiled in 11ms
+[00:01:20.239] Server  LOG     ✓ Compiled in 59ms
+[00:01:24.999] Server  LOG     ✓ Compiled in 26ms
+[00:01:49.667] Server  LOG     ✓ Compiled in 43ms
+[00:01:54.946] Server  LOG     ✓ Compiled in 25ms
+[00:01:59.527] Server  LOG     ✓ Compiled in 12ms
+[00:02:05.938] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:06.231] Server  ERROR   Google Calendar API error: {}
+[00:02:17.756] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:26.034] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:00.503] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:00.735] Server  ERROR   Google Calendar API error: {}

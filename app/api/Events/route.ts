@@ -37,10 +37,6 @@ function durationHours(start: Date, end: Date) {
   return Math.max(0, (end.getTime() - start.getTime()) / 36e5);
 }
 
-/**
- * IMPORTANT:
- * Ideally match aggregateWeekly's categorization logic.
- */
 function categorize(title: string): Category {
   const t = (title || "").toLowerCase();
 

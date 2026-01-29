@@ -65,18 +65,17 @@ export default function HomePage() {
         fontFamily: "inherit",
       }}
     >
-      {/* Header */}
       <header style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: 34, fontWeight: 600, marginBottom: 6 }}>
-          Busy-ness Report
+          TimeLens
         </h1>
         <p style={{ color: "#666", fontSize: 15 }}>
-          Your next 4 weeks, categorized into <b>Academic</b>, <b>Social</b>, and{" "}
-          <b>Other</b>.
+           <b>Academic</b>, <b>Social</b>, and{" "} 
+          <b>Other</b> Events of the Next Four Weeks
         </p>
       </header>
 
-      {/* Auth card */}
+
       <section
         style={{
           background: "#fff",
@@ -125,7 +124,7 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Content */}
+
       {status === "authenticated" && weekly.length > 0 && (
         <div style={{ display: "grid", gap: 24 }}>
           <Card>
@@ -136,7 +135,7 @@ export default function HomePage() {
             <BusyTable weekly={weekly} />
           </Card>
 
-          {/* NEW: Event lists by category per week */}
+          
           <Card>
             <h2 style={{ margin: 0, fontSize: 18, fontWeight: 600 }}>
               What counted (by week)

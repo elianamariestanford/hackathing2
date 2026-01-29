@@ -332,10 +332,7 @@ function parseEventDate(e, key) {
 function durationHours(start, end) {
     return Math.max(0, (end.getTime() - start.getTime()) / 36e5);
 }
-/**
- * IMPORTANT:
- * Ideally match aggregateWeekly's categorization logic.
- */ function categorize(title) {
+function categorize(title) {
     const t = (title || "").toLowerCase();
     const academic = [
         "class",
@@ -367,10 +364,7 @@ function durationHours(start, end) {
     if (social.some((k)=>t.includes(k))) return "Social";
     return "Other";
 }
-/**
- * Assign an event to the closest weekly bucket returned by aggregateWeekly.
- * This guarantees keys match the client’s w.weekStartISO exactly.
- */ function findWeekBucket(startISO, weekly) {
+function findWeekBucket(startISO, weekly) {
     if (!weekly.length) return null;
     const t = new Date(startISO).getTime();
     let best = weekly[0].weekStartISO;
@@ -415,9 +409,7 @@ async function GET() {
             maxResults: 2500
         });
         const items = resp.data.items ?? [];
-        // ✅ totals (source of truth for weekStartISO buckets)
         const { weekly } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$aggregate$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["aggregateWeekly"])(items);
-        // ✅ Initialize weeklyDetails using the exact same keys as `weekly`
         const weeklyDetails = {};
         for (const w of weekly){
             weeklyDetails[w.weekStartISO] = {
@@ -426,7 +418,6 @@ async function GET() {
                 Other: []
             };
         }
-        // ✅ Populate details into those buckets
         for (const e of items){
             const start = parseEventDate(e, "start");
             const end = parseEventDate(e, "end");
